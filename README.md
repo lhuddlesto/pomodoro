@@ -1,5 +1,5 @@
 # pomodoro
-A pomodoro timer for productivity.
+A pomodoro timer for productivity, built with ReactJS.
 
 # Installation
 
