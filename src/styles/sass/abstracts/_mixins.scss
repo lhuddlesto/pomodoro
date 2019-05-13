@@ -1,0 +1,18 @@
+@mixin top-padding {
+    padding-top: 6rem;
+  }
+
+@mixin settings-button-anim($icon) {
+    &::after {
+       content: $icon;
+       display: inline-block;
+       height: 100%;
+       width: 100%;
+       color: white;
+       opacity: 0.5;
+       position: absolute;
+       top: 0;
+       left: 0;
+       z-index: -1;
+   }
+ }

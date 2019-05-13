@@ -1,0 +1,45 @@
+.work-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+    .button.start{
+      margin-right: 5rem
+    }
+    
+    .time-settings.work {
+      padding-right: 10rem;
+    }
+    
+  }
+
+  .break-column {
+    display: flex;
+   flex-direction: row;
+     .button.stop {
+    margin-left: 5rem;
+   }
+   
+   .time-settings.break {
+     padding-left: 10rem;
+     
+   }
+ }
+
+ .decrement, .time__value, .increment {
+    display: inline;
+    font-size: 1.5rem;
+  }
+
+  .increment {
+    &:hover {
+      color: green;
+    }
+  }
+  
+  .decrement {
+    &:hover {
+      color: red;
+    }
+  }
+  

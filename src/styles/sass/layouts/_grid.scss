@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 20% 35% 5% 40%;
+  }
+
+  .settings {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }

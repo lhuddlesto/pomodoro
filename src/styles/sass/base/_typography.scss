@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "Futura";
+    src: url(https://cdn.glitch.com/30b6b0f8-effd-4bb0-be7b-31f6fa27545f%2Ffutura%20book%20font.ttf?1547089013291);
+}
+
+html {
+    font-family: "Futura"
+}
+
+body {
+    color: white;
+    background: linear-gradient(#2193B0, #6DD5ED);
+}
+
+.time-settings__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }

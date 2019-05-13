@@ -1,0 +1,16 @@
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include top-padding();
+    
+    .timer__container {
+      border: 2px solid white;
+      padding: 1rem 16rem 1rem 16rem;
+      border-radius: 1rem;
+    }
+    
+    .timer__display {
+      font-size: 8rem;
+    }
+  }

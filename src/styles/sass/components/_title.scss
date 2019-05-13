@@ -1,0 +1,9 @@
+.title {
+    .title__main {
+      text-align: center;
+      @include top-padding();
+      font-size: 5.5rem;
+      font-weight: 300;
+      letter-spacing: 0.2rem
+    }
+  }
