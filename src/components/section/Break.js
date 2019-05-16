@@ -8,9 +8,9 @@ function Break(props) {
     <div class="time-settings break">
       <p class="time-settings__title" id="break-label">Break</p>
       <span class="description-collapse">
-        <i class="decrement break fas fa-minus-circle" id="break-decrement"></i>
+        <i class="decrement break fas fa-minus-circle" id="break-decrement" onClick={props.decrement}></i>
         <p class="time__value break">{props.breakTime}</p>
-        <i class="increment break fas fa-plus-circle" id="break-increment"></i>
+        <i class="increment break fas fa-plus-circle" id="break-increment" onClick={props.increment}></i>
       </span>
 </div>
     </div>

@@ -34,12 +34,14 @@
   .increment {
     &:hover {
       color: green;
+      cursor: pointer;
     }
   }
   
   .decrement {
     &:hover {
       color: red;
+      cursor: pointer;
     }
   }
   
