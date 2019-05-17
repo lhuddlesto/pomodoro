@@ -10,7 +10,7 @@ function Work(props) {
             <p class="time__value">{props.workTime}</p>
             <i class="increment work fas fa-plus-circle" id="session-increment" onClick={props.increment}></i>
           </div>
-          <Start />
+          <Start passToWork={props.countdown}/>
         </div>
     )
 }
