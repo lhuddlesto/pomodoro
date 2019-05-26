@@ -5,7 +5,6 @@ import Timer from "./section/Timer";
 import Work from "./section/Work";
 import Break from "./section/Break";
 import Reset from "./section/Reset";
-import handleReset from "./functional/handleReset";
 
 var moment = require('moment');
 moment().format();
@@ -15,8 +14,8 @@ class App extends Component {
         state = {
             workTime: 25,
             breakTime: 5,
-            currentTime: ``,
-            timerOn: false
+            timerOn: false,
+            reset: false
         }
 
     handleReset = () => {
@@ -31,12 +30,12 @@ class App extends Component {
             if (e.target.id.match(sessionRegex)) {
                 value == "plus" ? this.setState({workTime: this.state.workTime + 5}) : this.setState({workTime: this.state.workTime - 5})
             } else if (e.target.id.match(breakRegex)) {
-                return value == "plus" ? this.setState({breakTime: this.state.breakTime + 5}) : this.setState({breakTime: this.state.breakTime - 5})
+                return value == "plus" ? this.setState({breakTime: this.state.breakTime + 1}) : this.setState({breakTime: this.state.breakTime - 1})
             }
         } else {
             return 
         }
-    }
+    }  
     
     handleIncrement = (e) => {
         const sessionRegex = /(^session)/g;
@@ -47,6 +46,7 @@ class App extends Component {
         }
         if (!this.state.timerOn) {
             this.plusMinus(e, "plus")
+
         } else {
             return 
         }
@@ -80,41 +80,26 @@ class App extends Component {
     }
 
     handleStart = (e) => {
-        return this.setState({timerOn: true})
+        this.setState({timerOn: true})
     }
 
-    handleCountdown = (e) => {
-        const milliseconds = this.state.workTime * 60000
-        const currentTime = moment.duration(milliseconds)
-        console.log(currentTime)
-        let currentMinutes = currentTime.minutes()
-        let currentSeconds = currentTime.seconds()
-
-        if (currentSeconds <= 9) {
-            currentSeconds = "0" + currentSeconds
-        }
-
-        if (currentTime.hours() == 1) {
-            currentMinutes = currentMinutes + 60
-        }
-        return this.setState({currentTime: currentMinutes + ":" + currentSeconds})
-    }
 
     render() {
         return (
-            <div class="container">
-                <section class="title">
+            <div className="container">
+                <section className="title">
                     <Title />
                 </section>
-                <section class="timer">
-                    <Timer time={this.state.currentTime}/>  
+                <section className="timer">
+                    <Timer workTime={this.state.workTime} time={this.state.currentTime} timerStatus={this.state.timerOn}/>  
                 </section>
-                <section class="settings">
-                    <Work workTime={this.state.workTime} increment={this.handleIncrement} decrement={this.handleDecrement} 
+                <section className="settings">
+                    <Work start={this.handleStart} workTime={this.state.workTime} increment={this.handleIncrement} decrement={this.handleDecrement} 
                     countdown={this.handleCountdown}/>
-                    <Break breakTime={this.state.breakTime} increment={this.handleIncrement} decrement={this.handleDecrement}/>
+                    <Break breakTime={this.state.breakTime} increment={this.handleIncrement} decrement={this.handleDecrement}
+                    stop={this.handleStop}/>
                 </section>
-                <section class="reset-button">
+                <section className="reset-button">
                     <Reset reset={this.handleReset}/>
                 </section>
             </div>
